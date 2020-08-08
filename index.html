@@ -55,3 +55,246 @@
 
 
 </html>
+
+<style type="text/css">
+	@import url('https://fonts.googleapis.com/css?family=Work+Sans:300,600');
+
+:root {
+  --background: rgba(0, 214, 170, .85);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+h2{
+  position:absolute;
+  top: -40px;
+  border: 3px solid black;
+  font-size: 50px;
+  font-family: 'Work Sans', sans-serif;
+}
+h3{
+  position: relative;
+  bottom: 120px;
+  font-size: 40px;
+  
+}
+
+#contact li a{
+  color: black;
+}
+
+#contact li a:hover{
+  color: white;
+}
+
+#contact li{
+  position: relative;
+  font-size: 20px;
+  top: -145px;
+} 
+
+.contact-p{
+  position: relative;
+  font-size: 18px;
+  font-weight: bold;
+  right: 100px;
+  top: -150px;
+}
+
+.quote{
+  position: absolute;
+  font-weight: bold;
+  font-size:20px ;
+  top:70px;
+  right: 750px;
+  width: 300px;
+}
+
+body {
+	position:relative;
+  top: -40px;
+  margin: 0;
+	background: #222;
+	font-family: 'Work Sans', sans-serif;
+	font-weight: 400;
+  position: relative;
+  height:50vh;
+  background-image: url(https://i2.wp.com/www.csscodelab.com/wp-content/uploads/2019/11/stripe-hero-background-effect-html-css.png?fit=1062%2C631&ssl=1);
+place-items: center;
+}
+
+.home-page{
+  position: relative;
+  display: grid;
+  place-items:center;
+  top:200px;
+  left: -200px;
+}
+
+.content {
+  position: relative;
+  height: 100vh;
+  background-image: url(https://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-hero-00e10b1f.jpg);
+  background-color: #1000;
+  background-blend-mode: multiply;
+  background-size: cover;
+  display: grid;
+  place-items: center;
+  bottom:-600px;
+}
+
+
+
+
+header{
+  background: var(--background);
+  text-align:center;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+}
+
+.nav-toggle{
+  display: none;
+}
+
+.nav-toggle-label{
+  position: absolute;
+  top:0;
+  left: 0;
+  margin-left: 1em;
+  height: 100%;
+  display: flex;
+  align-items:center;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after{
+  display: block;
+  background: white;
+  height: 2px;
+  width: 2em;
+  border-radius: 2px;
+  position: relative;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after{
+  content:'';
+  position: absolute;
+}
+
+.nav-toggle-label span::before{
+  bottom: 7px;
+}
+
+.nav-toggle-label span::after{
+  top: 7px;
+}
+
+nav{
+  position: absolute;
+  text align: left;
+  top: 100%;
+  left: 0;
+  background: var(--background);
+  width: 100%;
+  transform: scale(1,0);/*Shrinks Height*/
+  transform-origin: top;
+  transition: transform 400ms ease-in-out;
+}
+
+nav ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li{
+  margin-bottom: 1em;
+  margin-left: 1em;
+}
+
+nav a{
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out; /* animation without Delay */
+}
+
+nav a:hover {
+  color: #000;
+}
+
+.nav-toggle:checked ~ nav{
+  transform: scale(1,1);
+}
+
+.nav-toggle:checked ~ nav a {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 250ms;
+}
+/* Gets rid of hamburger for big screens*/
+@media screen and (min-width: 800px){
+  .nav-toggle-label{
+    display:none;
+  }
+  
+  header{
+    position: fixed;
+    top:0px;
+    display: grid;
+    grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+  }
+  
+  .logo{
+    grid-column: 2 / 3;
+  }
+  
+  nav{
+    all: unset; /*Look into this */
+    grid-column: 3 / 4;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  nav a{
+    opacity: 1;
+    position: relative; /*needs to be realtive for cool hover effect to work */
+  }
+  
+  nav a::before /*PART 1 of cool hover effect */{
+    content:'';
+    display: block;
+    height: 5px;
+    background: black;
+    position: absolute;
+    top:-.7em;
+    /*Instead of top:-.7em you could do bottom:-7em */
+    left: 0;
+    right: 0;
+    transform: scale(0, 1); /* shrinks width*/
+    /*You could add here /transform-origin:right/ or left to mess with the hover effect */
+    transition: transform ease-in-out 250ms;
+  }
+  
+  nav a:hover::before /*PART 2 of cool hover effect */{
+    transform: scale(1,1);
+  }
+  
+  nav ul{
+    display: flex; /* puts everything in a row SUPER Important for nav bars */
+  
+}
+  
+  nav li{
+    margin-left: 3em; /*How spread out the they are */
+    margin-bottom: 0;
+  }
+</style>
